@@ -1,0 +1,56 @@
+<div class="container login-page">
+    <div class="row text-center">
+        <div class="col-sm-9 col-md-7 col-lg-7 mx-auto">
+            <img src="assets/images/tortoise.png" alt="logo" />
+            <h1 class="card-title text-center">Check Out Kobe - it's free!</h1>
+            <h2>Kobe helps consumers in Afrika save time and money!</h2>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="clearfix"></div>
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card-signin">
+                <div class="card-body">
+
+                    <form class="form-signin" [formGroup]="rForm" (ngSubmit)="Register()" novalidate autocomplete="off">
+                        <div class="form-label-group">
+                            <input type="email" id="inputEmail" formControlName="email"
+                                class="form-control" placeholder="Email" required autofocus>
+                            <kobe-validation [control]="email" [RequiredMessage]="'Please enter email'"
+                                [EmailMessage]="'Please enter valid email'"></kobe-validation>
+                        </div>
+
+                        <div class="form-label-group">
+                            <input type="password" id="inputPassword" formControlName="password" class="form-control"
+                                placeholder="Password" required>
+                            <kobe-validation [control]="password" [RequiredMessage]="'Please enter password'"
+                                [MinMessage]="'Please enter atleast 6 characters'"></kobe-validation>
+                            <small>At least 6 characters, but longer is better <span><a (click)="display()" style="cursor:pointer">{{passwordText}}</a></span></small>
+                        </div>
+                        <div class="form-label-group">
+                            <input type="text" id="firstname" formControlName="firstname" class="form-control"
+                                placeholder="First name" required>
+                            <kobe-validation [control]="firstname" [RequiredMessage]="'Please enter firstname'">
+                            </kobe-validation>
+                        </div>
+                        <div class="form-label-group">
+                            <input type="text" id="lastname" formControlName="lastname" class="form-control"
+                                placeholder="Last name" required>
+                            <kobe-validation [control]="lastname" [RequiredMessage]="'Please enter lastname'"></kobe-validation>
+                            
+                        </div>
+
+                        <!-- <button class="btn btn-lg btn-primary btn-block" type="submit">Get started</button> -->
+                        <kobe-button [label]="'Get started'" [class]="'btn btn-lg btn-primary btn-block'"
+                            [type]="'submit'" [disableButton]="rForm.invalid">
+                        </kobe-button>
+                        <hr class="my-4">
+                        <p>By signing up, you are indicating that you have read and agree to the <a href="#">Terms of
+                                Use</a> and <a href="#">Privacy Policy</a></p>
+                        <p>Already have an account? <a routerLink="/login">Sign in now.</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

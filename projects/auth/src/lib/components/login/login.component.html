@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <form [formGroup]="rForm" (ngSubmit)="Login()" novalidate>
+            <div class="form-group">
+                <label class="control-label">{{'Enter email'}}</label>
+                <input type="text" maxlength="100" formControlName="email" class="form-control"
+                    placeholder="{{'Enter Email'}}" autocomplete="off">
+                <kobe-validation [control]="email" [RequiredMessage]="'Please enter email'"
+                    [EmailMessage]="'Please enter valid email'"></kobe-validation>
+            </div>
+            <div class="form-group">
+                <label class="control-label">{{'Enter password'}}</label>
+                <input type="password" maxlength="12" formControlName="password" class="form-control"
+                    placeholder="{{'Enter Password'}}" autocomplete="off">
+                <kobe-validation [control]="password" [RequiredMessage]="'Please enter password'">
+                </kobe-validation>
+            </div>
+            <div class="form-group">
+                <kobe-button [label]="'Login'" [class]="''" [type]="'submit'" [disableButton]="rForm.invalid">
+                </kobe-button>&nbsp;&nbsp;
+                <label><a routerLink="/register">Sign Up</a></label>
+            </div>
+        </form>
+    </div>
+</div>
